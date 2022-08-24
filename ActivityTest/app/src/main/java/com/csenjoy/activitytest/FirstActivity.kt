@@ -32,4 +32,6 @@ class FirstActivity : AppCompatActivity() {
         }
         return  true;
     }
+    //Add a function to test commit in different place.
+    fun testGitCommit() {}
 }

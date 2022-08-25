@@ -1,5 +1,6 @@
 package com.csenjoy.helloworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
             btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                    startActivity(intent);
                 }
             });
         }

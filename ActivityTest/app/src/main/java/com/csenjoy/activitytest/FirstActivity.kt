@@ -1,14 +1,14 @@
 package com.csenjoy.activitytest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.first_layout.*
 
-class FirstActivity : AppCompatActivity() {
+class FirstActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_layout)
@@ -16,9 +16,10 @@ class FirstActivity : AppCompatActivity() {
         //button1?.setOnClickListener {
         //    Toast.makeText(this, "You clicked Button 1", Toast.LENGTH_SHORT).show()
         //}
+        Log.d("FirstActivity", this.toString())
         button1.setOnClickListener {
            //Toast.makeText(this, "You clicked Button 1", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(this, FirstActivity::class.java)
             //Pass data
             val data = "Hello SecondActivity"
             intent.putExtra("extra_data", data)
@@ -30,6 +31,7 @@ class FirstActivity : AppCompatActivity() {
             intent.addCategory("com.csenjoy.activitytest.MY_CATEGORY")
             startActivity(intent)
         }
+        doSomething()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d(tag, "onCreate")
+        Log.d(tag, "onCreate()")
         startNormalActivity.setOnClickListener {
             val intent = Intent(this, NormalActivity::class.java)
             startActivity(intent)
@@ -21,6 +21,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DialogActivity::class.java)
             startActivity(intent)
         }
+        if (savedInstanceState != null) {
+            val tmpData = savedInstanceState.getString("data_key")
+            Log.d(tag, "get $tmpData from savedInstanceState")
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val tmpData = "Something you just typed"
+        outState.putString("data_key",tmpData)
+        Log.d(tag, "onSaveInstanceState putString: $tmpData")
     }
 
     override fun onStart() {
